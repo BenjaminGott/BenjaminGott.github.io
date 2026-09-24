@@ -287,6 +287,44 @@ h3 {
   padding: 16px 20px;
 }
 
+/* Screenshot strip: the panels touch, so the picture reads as one. */
+
+.gallery {
+  margin: 40px 0 8px;
+}
+
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) transparent;
+  /* Starts aligned with the text, and can still scroll to the edges. */
+  padding: 0 max(20px, calc((100vw - 880px) / 2 + 20px)) 12px;
+  scroll-padding: 0 max(20px, calc((100vw - 880px) / 2 + 20px));
+}
+
+.gallery-track:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: -3px;
+}
+
+.gallery-track img {
+  flex: none;
+  width: auto;
+  /* On a phone, the next panel peeks in: a hint that the strip scrolls. */
+  height: clamp(360px, min(72vh, 140vw), 640px);
+  scroll-snap-align: start;
+}
+
+.gallery-track img:first-child {
+  border-radius: 20px 0 0 20px;
+}
+
+.gallery-track img:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
 /* Long-form text (privacy policy) */
 
 .prose h2 {
