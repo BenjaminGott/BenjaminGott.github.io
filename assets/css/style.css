@@ -1,4 +1,4 @@
-/* Site de libergot : une feuille de style pour toutes les pages. */
+/* libergot website: one stylesheet for every page. */
 
 :root {
   --paper: #f4f6f2;
@@ -73,7 +73,7 @@ img {
   max-width: 720px;
 }
 
-/* En-tête et pied de page */
+/* Header and footer */
 
 .site-header {
   background: var(--green);
@@ -131,7 +131,7 @@ main {
   justify-content: space-between;
 }
 
-/* Typographie */
+/* Typography */
 
 h1,
 h2,
@@ -164,7 +164,7 @@ h3 {
   color: var(--muted);
 }
 
-/* Cartes d'applications */
+/* App cards */
 
 .apps {
   display: grid;
@@ -208,7 +208,7 @@ h3 {
   flex: none;
 }
 
-/* Page d'une application */
+/* App page */
 
 .hero {
   display: flex;
@@ -287,7 +287,7 @@ h3 {
   padding: 16px 20px;
 }
 
-/* Textes longs (politique de confidentialité) */
+/* Long-form text (privacy policy) */
 
 .prose h2 {
   border-top: 1px solid var(--line);
