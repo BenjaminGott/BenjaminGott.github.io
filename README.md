@@ -1,13 +1,20 @@
 # libergot — app website
 
 Static site published with GitHub Pages: <https://benjamingott.github.io/>.
-Plain HTML and one stylesheet, no build step. The site is in English.
+Plain HTML and one stylesheet, no build step. The site is in English, with
+French versions of the MyBookmark pages.
 
 | Page | Path |
 | --- | --- |
 | Home | `/` |
 | MyBookmark | `/mybookmark/` |
 | MyBookmark — privacy policy | `/mybookmark/privacy/` |
+| MyBookmark, in French | `/mybookmark/fr/` |
+| MyBookmark — privacy policy, in French | `/mybookmark/fr/privacy/` |
+
+The MyBookmark pages have an EN | FR switch in the header. Screenshots live in
+`assets/img/mybookmark-screens/` (English) and `…/fr/` (French); both come from
+`tool/screenshots` in the app repository.
 
 Old paths redirect to the current ones: `/biblivre/…` (the app's first name)
 and `/mybookmark/confidentialite/` (the French privacy URL).
