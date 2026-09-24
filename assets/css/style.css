@@ -101,6 +101,12 @@ img {
   color: var(--yellow);
 }
 
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .site-header nav a {
   color: #fff;
   font-size: 0.95rem;
@@ -129,6 +135,33 @@ main {
   flex-wrap: wrap;
   gap: 8px 24px;
   justify-content: space-between;
+}
+
+/* Language switch: two small pills, the current language filled in. */
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.site-header .lang-switch a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 1;
+  padding: 3px 10px;
+}
+
+.site-header .lang-switch a[aria-current="page"] {
+  background: var(--yellow);
+  color: var(--green);
+}
+
+.site-header .lang-switch a:not([aria-current]):hover {
+  background: rgb(255 255 255 / 12%);
+  text-decoration: none;
 }
 
 /* Typography */
@@ -313,7 +346,7 @@ h3 {
   flex: none;
   width: auto;
   /* On a phone, the next panel peeks in: a hint that the strip scrolls. */
-  height: clamp(360px, min(72vh, 140vw), 640px);
+  height: clamp(300px, min(52vh, 100vw), 440px);
   scroll-snap-align: start;
 }
 
