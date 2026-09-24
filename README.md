@@ -1,27 +1,26 @@
-# libergot — site des applications
+# libergot — app website
 
-Site statique publié par GitHub Pages : <https://benjamingott.github.io/>.
-Du HTML et une feuille de style, sans étape de build.
+Static site published with GitHub Pages: <https://benjamingott.github.io/>.
+Plain HTML and one stylesheet, no build step. The site is in English.
 
-| Page | Adresse |
+| Page | Path |
 | --- | --- |
-| Accueil | `/` |
-| Mon marque-page (MyBookmark) | `/mybookmark/` |
-| Mon marque-page — politique de confidentialité | `/mybookmark/confidentialite/` |
+| Home | `/` |
+| MyBookmark | `/mybookmark/` |
+| MyBookmark — privacy policy | `/mybookmark/privacy/` |
 
-Les anciennes adresses `/biblivre/…` (le premier nom de l'app) redirigent vers
-`/mybookmark/…`.
+Old paths redirect to the current ones: `/biblivre/…` (the app's first name)
+and `/mybookmark/confidentialite/` (the French privacy URL).
 
-## Ajouter une application
+## Adding an app
 
-1. Copier le dossier `mybookmark/` sous le nom de la nouvelle app, adapter les
-   textes et l'icône (`assets/img/`).
-2. Ajouter sa carte dans la liste `.apps` de `index.html`.
+1. Copy the `mybookmark/` folder under the new app's name, then adapt the text
+   and the icon (`assets/img/`).
+2. Add its card to the `.apps` list in `index.html`.
 
-## Nom de domaine
+## Custom domain
 
-Pour passer sur un domaine à soi : *Settings → Pages → Custom domain*, puis
-créer chez le registraire un enregistrement `CNAME` vers
-`benjamingott.github.io`. Les liens du site sont relatifs à la racine
-(`/mybookmark/…`) et continuent de fonctionner. Penser à mettre à jour l'URL de
-confidentialité dans la Play Console et chez Meta.
+To move to your own domain: *Settings → Pages → Custom domain*, then add a
+`CNAME` record pointing to `benjamingott.github.io` at your registrar. Links
+are root-relative (`/mybookmark/…`) and keep working. Remember to update the
+privacy policy URL in the Play Console and on Meta.
