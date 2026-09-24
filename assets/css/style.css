@@ -1,0 +1,331 @@
+/* Site de libergot : une feuille de style pour toutes les pages. */
+
+:root {
+  --paper: #f4f6f2;
+  --surface: #ffffff;
+  --ink: #17221f;
+  --muted: #55625e;
+  --line: #dde3dc;
+  --green: #135450;
+  --green-soft: #e3eeec;
+  --yellow: #f2c04f;
+  --link: #135450;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgb(19 84 80 / 8%), 0 8px 24px rgb(19 84 80 / 8%);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1a18;
+    --surface: #16241f;
+    --ink: #e8eeeb;
+    --muted: #a3b2ad;
+    --line: #263833;
+    --green-soft: #1a2f2b;
+    --link: #f2c04f;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.narrow {
+  max-width: 720px;
+}
+
+/* En-tête et pied de page */
+
+.site-header {
+  background: var(--green);
+  color: #fff;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 64px;
+}
+
+.brand {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--yellow);
+}
+
+.site-header nav a {
+  color: #fff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.site-header nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+main {
+  padding: 48px 0 64px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 24px 0 32px;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  justify-content: space-between;
+}
+
+/* Typographie */
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.15rem;
+  max-width: 38em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Cartes d'applications */
+
+.apps {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.app-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: inherit;
+  padding: 20px;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+}
+
+.app-card h3 {
+  margin: 0 0 4px;
+}
+
+.app-card p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.app-icon {
+  border-radius: 22%;
+  flex: none;
+}
+
+/* Page d'une application */
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+  align-items: center;
+}
+
+.hero .app-icon {
+  box-shadow: var(--shadow);
+}
+
+.hero-text {
+  flex: 1 1 320px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--green);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 22px;
+  text-decoration: none;
+}
+
+.button.secondary {
+  background: transparent;
+  border: 2px solid var(--line);
+  color: var(--ink);
+}
+
+.button[aria-disabled="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.features {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.features strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.features span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.note {
+  background: var(--green-soft);
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 12px 12px 0;
+  margin: 32px 0 0;
+  padding: 16px 20px;
+}
+
+/* Textes longs (politique de confidentialité) */
+
+.prose h2 {
+  border-top: 1px solid var(--line);
+  padding-top: 1.2em;
+}
+
+.prose li {
+  margin-bottom: 0.4em;
+}
+
+.prose table {
+  border-collapse: collapse;
+  display: block;
+  font-size: 0.95rem;
+  margin: 1em 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  background: var(--green-soft);
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-card {
+    transition: none;
+  }
+}
