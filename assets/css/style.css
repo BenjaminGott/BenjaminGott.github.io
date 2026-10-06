@@ -358,6 +358,18 @@ h3 {
   border-radius: 0 20px 20px 0;
 }
 
+/* Landscape screenshots (games): separate rounded frames, side by side. */
+
+.gallery-track.landscape {
+  gap: 16px;
+}
+
+.gallery-track.landscape img {
+  height: clamp(190px, min(36vh, 52vw), 340px);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
 /* Long-form text (privacy policy) */
 
 .prose h2 {
