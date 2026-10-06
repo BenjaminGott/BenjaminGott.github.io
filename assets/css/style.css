@@ -457,9 +457,15 @@ h3 {
   margin-top: 40px;
 }
 
+.trailer h2 {
+  text-align: center;
+}
+
 .trailer video {
   display: block;
-  width: 100%;
+  /* Assez grande pour lire les légendes, sans écraser la page. */
+  width: min(100%, 640px);
+  margin: 0 auto;
   height: auto;
   aspect-ratio: 16 / 9;
   border-radius: 16px;
