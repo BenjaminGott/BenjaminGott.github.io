@@ -463,13 +463,11 @@ h3 {
 
 .trailer video {
   display: block;
-  /* Même taille que les captures de la galerie (.gallery-track.landscape img). */
-  height: clamp(190px, min(36vh, 52vw), 340px);
-  width: auto;
-  max-width: 100%;
+  /* Assez grande pour lire les légendes, sans écraser la page. */
+  width: min(100%, 640px);
   margin: 0 auto;
+  height: auto;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
   border-radius: 16px;
   background: var(--ink);
   box-shadow: var(--shadow);
