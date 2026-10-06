@@ -1,29 +1,49 @@
-/* libergot website: one stylesheet for every page. */
+/* Libergot website: one stylesheet for every page.
+   Colours taken from the logo: cream paper, ink, and its watercolours
+   (slate blue, terracotta roof, ochre wall, pink door). */
+
+@font-face {
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  /* Self-hosted (SIL Open Font License): no request to Google. */
+  src: url("/assets/fonts/amatic-sc-700.woff2") format("woff2");
+}
 
 :root {
-  --paper: #f4f6f2;
-  --surface: #ffffff;
-  --ink: #17221f;
-  --muted: #55625e;
-  --line: #dde3dc;
-  --green: #135450;
-  --green-soft: #e3eeec;
-  --yellow: #f2c04f;
-  --link: #135450;
+  --paper: #f7f2e8;
+  --surface: #fffdf8;
+  --ink: #2a2420;
+  --muted: #6b5f55;
+  --line: #e6dccb;
+  /* Historical names, kept so every rule still applies: --green is the
+     main accent (terracotta), --yellow the highlight (ochre). */
+  --green: #a4553f;
+  --green-soft: #f2e5d8;
+  --yellow: #d9a04e;
+  --blue: #8fa7b6;
+  --blue-soft: #e4ebee;
+  --link: #9c4f38;
   --radius: 18px;
-  --shadow: 0 1px 2px rgb(19 84 80 / 8%), 0 8px 24px rgb(19 84 80 / 8%);
+  --shadow: 0 1px 2px rgb(42 36 32 / 6%), 0 8px 24px rgb(42 36 32 / 7%);
+  --hand: "Amatic SC", "Comic Sans MS", cursive;
+  --on-accent: #ffffff;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0f1a18;
-    --surface: #16241f;
-    --ink: #e8eeeb;
-    --muted: #a3b2ad;
-    --line: #263833;
-    --green-soft: #1a2f2b;
-    --link: #f2c04f;
+    --paper: #1e1a16;
+    --surface: #27221d;
+    --ink: #f3ede3;
+    --muted: #b8ada0;
+    --line: #3a332c;
+    --green: #c9775f;
+    --green-soft: #33281f;
+    --blue-soft: #232a2d;
+    --link: #e3a37f;
+    --on-accent: #1e1a16;
     --shadow: none;
     color-scheme: dark;
   }
@@ -76,8 +96,9 @@ img {
 /* Header and footer */
 
 .site-header {
-  background: var(--green);
-  color: #fff;
+  background: var(--paper);
+  border-bottom: 2px dashed var(--line);
+  color: var(--ink);
 }
 
 .site-header .wrap {
@@ -85,20 +106,29 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 64px;
+  min-height: 72px;
 }
 
 .brand {
-  color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.06em;
+  line-height: 1;
   text-decoration: none;
 }
 
-.brand span {
-  color: var(--yellow);
+/* The little house, always on paper (also in dark mode). */
+.brand img {
+  width: 44px;
+  height: 44px;
+  background: #f7f2e8;
+  border-radius: 50%;
+  padding: 3px;
 }
 
 .site-header nav {
@@ -108,7 +138,7 @@ img {
 }
 
 .site-header nav a {
-  color: #fff;
+  color: var(--ink);
   font-size: 0.95rem;
   text-decoration: none;
   opacity: 0.9;
@@ -141,7 +171,7 @@ main {
 
 .lang-switch {
   display: inline-flex;
-  border: 1px solid rgb(255 255 255 / 45%);
+  border: 1px solid var(--line);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -156,11 +186,11 @@ main {
 
 .site-header .lang-switch a[aria-current="page"] {
   background: var(--yellow);
-  color: var(--green);
+  color: #2a2420;
 }
 
 .site-header .lang-switch a:not([aria-current]):hover {
-  background: rgb(255 255 255 / 12%);
+  background: var(--green-soft);
   text-decoration: none;
 }
 
@@ -197,6 +227,56 @@ h3 {
   color: var(--muted);
 }
 
+/* Home: the logo on its watercolour wash, then the apps */
+
+.home-hero {
+  position: relative;
+  text-align: center;
+  padding: 8px 0 16px;
+}
+
+/* Two soft watercolour blots behind the logo (blue and ochre). */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: -10px 0 auto;
+  height: 360px;
+  background:
+    radial-gradient(closest-side, rgb(143 167 182 / 22%), transparent) 22% 30% / 260px 220px no-repeat,
+    radial-gradient(closest-side, rgb(217 160 78 / 20%), transparent) 78% 55% / 280px 220px no-repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.home-logo {
+  display: block;
+  width: min(300px, 70vw);
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  /* The logo keeps its own paper, even in dark mode. */
+  background: #f7f2e8;
+}
+
+.home-hero h1 {
+  font-family: var(--hand);
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  letter-spacing: 0.03em;
+  margin-top: 8px;
+}
+
+.home-hero .lead {
+  margin: 0 auto;
+}
+
+.home-section {
+  text-align: center;
+  font-family: var(--hand);
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+}
+
 /* App cards */
 
 .apps {
@@ -224,6 +304,7 @@ h3 {
 
 .app-card:hover {
   transform: translateY(-2px);
+  border-color: var(--yellow);
 }
 
 .app-card h3 {
@@ -269,7 +350,7 @@ h3 {
   display: inline-block;
   background: var(--green);
   border-radius: 999px;
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 600;
   padding: 10px 22px;
   text-decoration: none;
