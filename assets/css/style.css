@@ -451,6 +451,22 @@ h3 {
   box-shadow: var(--shadow);
 }
 
+/* Trailer (game pages) */
+
+.trailer {
+  margin-top: 40px;
+}
+
+.trailer video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  background: var(--ink);
+  box-shadow: var(--shadow);
+}
+
 /* Long-form text (privacy policy) */
 
 .prose h2 {
