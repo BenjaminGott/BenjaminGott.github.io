@@ -22,6 +22,10 @@ Screenshots live in `assets/img/<app>-screens/` (English) and `…/fr/`
 Rush's are landscape captures of the web build (854 × 480 at ×2, WebP), shown
 with the `.gallery-track.landscape` variant.
 
+Both apps have a presentation video in `assets/video/<app>-en|fr.mp4` (and
+`.webm`), shown in the `.trailer` section with a poster image. MyBookmark's
+are made by `tool/screenshots/video.py` in its repository.
+
 Matcha Rush, unlike MyBookmark, shows rewarded ads (AdMob), sends anonymous
 statistics (Firebase) and has in-app purchases: its privacy policy says so,
 and the home page no longer promises "no ads" for every app.
